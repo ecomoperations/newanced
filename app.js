@@ -11,8 +11,20 @@ var users = require('./routes/users');
 var app = express();
 var request = require('request');
 var mongoose = require('mongoose');
+
 require('./models/Posts');
-mongoose.connect('mongodb://localhost/postdatabase');
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/HelloMongoose';
+
+mongoose.connect(uristring, function (err, res) {
+      if (err) {
+      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+      } else {
+      console.log ('Succeeded connected to: ' + uristring);
+      }
+    });
 
 
 // view engine setup
