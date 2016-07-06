@@ -14,9 +14,9 @@ var mongoose = require('mongoose');
 
 require('./models/Posts');
 var uristring =
-    process.env.MONGOLAB_URI ||
+    process.env.MONGODB_URI ||
     process.env.MONGOHQ_URL ||
-    'mongodb://localhost/HelloMongoose';
+    'mongodb://localhost/postdatabase';
 
 mongoose.connect(uristring, function (err, res) {
       if (err) {
