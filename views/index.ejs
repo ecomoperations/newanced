@@ -15,7 +15,7 @@
     <p>Welcome to <%= title %></p>
     
 
-    <div ng-repeat="post in allData">
+    <div ng-repeat="post in allData | orderBy: 'publishedAt':true ">
     	<a href="/posts/{{post._id}}">{{post.title}}</a>
     </div>
     
