@@ -49,12 +49,12 @@ var saveFunc = function (req, res) {
 	
 }
 
-
-var postDatabase = function () {
-	return request.get(feedUrl, saveFunc); 
-};
+request.get(feedUrl, saveFunc); 
+// var postDatabase = function () {
+// 	return request.get(feedUrl, saveFunc); 
+// };
    
-setInterval(postDatabase, 10000);
+// setInterval(postDatabase, 10000);
 
 
 router.get('/', function(req, res, next) {
