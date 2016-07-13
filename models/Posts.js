@@ -6,7 +6,8 @@ var postSchema = new Schema({
   title: String,
   link: String,
   photo: String,
-  content: String
+  content: String,
+  category: String
 });
 
 module.exports = {
