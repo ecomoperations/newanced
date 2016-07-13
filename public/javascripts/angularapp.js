@@ -7,4 +7,9 @@ app.controller('mainCtrl', function($scope, $http) {
         // console.log(response)
         $scope.allData = response.data;
     });
+    // $http.get('/posts/:category_id')
+    // .then(function(response) {
+    //     // console.log(response)
+    //     $scope.allData = response.data;
+    // });
 });
