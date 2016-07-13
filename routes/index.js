@@ -64,8 +64,9 @@ var saveFunc = function (req, res) {
 		  	post.netvibes_id = item.id
 			post.title = item.title;
 			post.link = item.link;
-			// is this
-			post.photo = item.enclosures[0].link;
+			if (item.enclosures[0].link) {
+				post.photo = item.enclosures.link;
+			}
 			post.content = item.content;
 			post.category = category_id; 
 			post.save(function(err, res) {
