@@ -99,6 +99,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Nooanse' });
 });
 
+router.get('/sandbox', function(req, res, next) {
+  
+  res.render('sandbox', { title: 'sandbox' });
+});
+
 router.get('/posts', function(req, res, next) {
 	models.Post.find(function(err, posts) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
