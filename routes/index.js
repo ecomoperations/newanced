@@ -2,7 +2,7 @@ var express = require('express');
 var request = require('request');
 var router = express.Router();
 var models            = require('../models/Posts.js');
-var feedUrl = require('../config/external_posts.js');
+var feedUrls = require('../config/external_posts.js');
 
 
 router.param('post', function(req, res, next, id) {
@@ -51,6 +51,9 @@ var saveFunc = function (req, res) {
 	
 	items.forEach(function(item) {
 		
+		// var stripped_content = item.content.replace("<[^>]*>/g", " ");
+		// console.log(stripped_content)
+
 		models.Post.find({title: item.title}, function(err, dbPost) {
 		  
 		  if (err) throw err;
@@ -80,7 +83,10 @@ var saveFunc = function (req, res) {
 	
 }
 
-request.get(feedUrl, saveFunc); 
+feedUrls.forEach(function(feedUrl) {
+	// console.log(feedUrl)
+	return request.get(feedUrl, saveFunc); 
+});
 // var postDatabase = function () {
 // 	return request.get(feedUrl, saveFunc); 
 // };
