@@ -99,10 +99,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Nooanse' });
 });
 
-router.get('/sandbox', function(req, res, next) {
+// router.get('/sandbox', function(req, res, next) {
   
-  res.render('sandbox', { title: 'sandbox' });
-});
+//   res.render('sandbox', { title: 'sandbox' });
+// });
 
 router.get('/posts', function(req, res, next) {
 	models.Post.find(function(err, posts) {

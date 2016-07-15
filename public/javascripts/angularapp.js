@@ -10,8 +10,8 @@ app.controller('mainCtrl', function($scope, $http) {
 
     });
 
-    $scope.filter1 = { };
-	$scope.filter2 = { };
+    $scope.filter1 = { category: '81ec195e-3bba-11e6-a82b-782bcb10ee8c' };
+	$scope.filter2 = { category: '7ba83050-3bba-11e6-be02-782bcb102f71' };
 	
     
     // $scope.links = [

@@ -21,7 +21,7 @@
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
         		</button>
-        		<a class="navbar-brand" href="/">Nooanse</a>
+        		<a class="navbar-brand" href="/">NEWANCED</a>
         	</div>
 
         	<div class="collapse navbar-collapse" id="navigation-example">
@@ -32,31 +32,21 @@
 							<i class="material-icons">chat_bubble_outline</i> What Is This?
 						</a>
     				</li>
-		            <li>
-		                <a href="https://twitter.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
-							<i class="fa fa-twitter"></i>
-						</a>
-		            </li>
-		            <li>
-		                <a href="https://www.facebook.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
-							<i class="fa fa-facebook-square"></i>
-						</a>
-		            </li>
-					<li>
-		                <a href="https://www.instagram.com/CreativeTimOfficial" target="_blank" class="btn btn-simple btn-white btn-just-icon">
-							<i class="fa fa-instagram"></i>
-						</a>
-		            </li>
+		            
         		</ul>
         	</div>
     	</div>
     </nav>
 
  <div class="wrapper">    
-	<div class="header header-filter" style="background-image: url('https://newevolutiondesigns.com/images/freebies/city-wallpaper-47.jpg');"></div>
+	<div class="header header-filter" style="background-image: url('https://newevolutiondesigns.com/images/freebies/city-wallpaper-47.jpg');">
+		
+<!-- 		<div style="padding: 200px; color: #fff; text-align: center;"><h1>Big Title Here</h1></div> -->
+	</div>
 
 
-   
+	
+
     <div class="main main-raised">
     	
 		    <ul class="nav nav-pills nav-pills-info " role="tablist" >
@@ -87,7 +77,22 @@
 			</ul>
 		<div class="container">
 
-		    <div class="col-md-6" ng-repeat="post in allData | orderBy: 'publishedAt':true | filter:filter1 ">
+
+		<div class="col-md-6">
+
+
+
+<div class="card card-signup padding-top">
+							<form class="form" method="" action="">
+								<div class="header header-info text-center">
+									<h4>Liberal-Leaning</h4>
+									
+								</div>
+								
+							</form>
+						</div>
+
+		    <div ng-repeat="post in allData | orderBy: 'publishedAt':true | filter:filter1 ">
 		    	
 
 					<div class="card card-blog">
@@ -98,7 +103,7 @@
 							</a>
 						</div>
 						<div class="content">
-							<h6 class="category text-info">Enterprise</h6>
+							<h6 class="category text-info-liberal">Enterprise</h6>
 							<h4 class="card-title">
 								<a href="/posts/{{post._id}}">{{post.title}}</a>
 							</h4>
@@ -108,8 +113,19 @@
 						</div>
 					</div>
 		    </div>
+		    </div>
+		    <div class="col-md-6">
 
-		       <div class="col-md-6" ng-repeat="post in allData | orderBy: 'publishedAt':true | filter:filter2 ">
+		    <div class="card card-signup padding-top">
+							<form class="form" method="" action="">
+								<div class="header header-primary text-center">
+									<h4>Conservative-Leaning</h4>
+									
+								</div>
+								
+							</form>
+						</div>
+		       <div ng-repeat="post in allData | orderBy: 'publishedAt':true | filter:filter2 ">
 		    	
 
 					<div class="card card-blog">
@@ -120,7 +136,7 @@
 							</a>
 						</div>
 						<div class="content">
-							<h6 class="category text-info">Enterprise</h6>
+							<h6 class="category text-info-conservative">Enterprise</h6>
 							<h4 class="card-title">
 								<a href="/posts/{{post._id}}">{{post.title}}</a>
 							</h4>
@@ -129,6 +145,7 @@
 							</p>
 						</div>
 					</div>
+		    	</div>
 		    </div>
 		</div>    
 	</div>
