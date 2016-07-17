@@ -3,7 +3,12 @@
 /*a {
   color: #00B7FF;
 }*/
-
+.brand-heading {
+	padding-top: 100px;
+	color: white;
+	font-size: 5em;
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
 
 .card .content {
     padding: 15px 30px;
@@ -3681,7 +3686,7 @@ h2.title {
   left: 0;
   top: 0;
   content: "";
-  background-color: rgba(0, 0, 0, 0.4);
+  /*background-color: rgba(0, 0, 0, 0.4);*/
 }
 .header-filter .container {
   z-index: 2;
