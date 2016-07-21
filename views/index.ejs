@@ -117,12 +117,12 @@
 							</a>
 						</div>
 						<div class="content">
-							<h6 class="category text-info-liberal">Enterprise</h6>
+							<h6 class="category text-info-liberal">{{categoryFunction(post)}}</h6>
 							<h4 class="card-title">
 								<a href="/posts/{{post._id}}">{{post.title}}</a>
 							</h4>
 							<p class="card-description"  >
-								{{post.content | limitTo:250 }}<a href="/posts/{{post._id}}"> Read More </a>
+								{{post.content | limitTo:250 | stripTags }}<a href="/posts/{{post._id}}"> Read More </a>
 							</p>
 						</div>
 					</div>
@@ -150,12 +150,12 @@
 							</a>
 						</div>
 						<div class="content">
-							<h6 class="category text-info-conservative">Enterprise</h6>
+							<h6 class="category text-info-conservative">{{categoryFunction(post)}}</h6>
 							<h4 class="card-title">
 								<a href="/posts/{{post._id}}">{{post.title}}</a>
 							</h4>
 							<p class="card-description"  >
-								{{post.content | limitTo:250 }}<a href="/posts/{{post._id}}"> Read More </a>
+								{{post.content | limitTo:250 | stripTags }}<a href="/posts/{{post._id}}"> Read More </a>
 							</p>
 						</div>
 					</div>

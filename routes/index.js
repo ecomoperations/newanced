@@ -115,19 +115,27 @@ router.get('/posts', function(req, res, next) {
 });
 
 // router.get('/posts/:category_id', function(req, res) {
-//   models.Post.find({category:category_id},function(err, posts) {
-//         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-//         if (err)
-//             res.send(err)
+  // models.Post.find({category:category_id},function(err, posts) {
+  //       // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+  //       if (err)
+  //           res.send(err)
 
-//         res.json(posts); 
-//     });
+  //       res.json(posts); 
+  //   });
 
 // });
 
 router.get('/category/:category', function(req, res) {
-	
-  res.render('categoryPage', { theCategory: req.category});
+	  res.json(req.category)
+
+	  // models.Post.find({category: category},function(err, posts) {
+   //      // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+   //      if (err)
+   //          res.send(err)
+
+   //      res.json(posts); 
+   //  });
+  // res.render('categoryPage', { theCategory: req.category});
 });
 
 
