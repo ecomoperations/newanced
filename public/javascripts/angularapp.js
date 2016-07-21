@@ -20,16 +20,17 @@ app.controller('mainCtrl', function($scope, $http) {
 
     ];
     var catArray = [];
-    for (i=1; i <= (allCats.length) ;i++) {
+    for (i=0; i <= (allCats.length - 1) ;i++) {
 
         
             $http.get(allCats[i]).then(function(response) {
-                for (x=1; x<=2; x++) {
+                for (x=0; x<=1; x++) {
                     catArray.push(response.data[x])
                 };
+                // console.log(catArray)
             });
         
-    }
+    };
     // allCats.forEach(function(cat) {
     //     var catArray = [];
     //     for (i=1;i<=2;i++) {
@@ -39,7 +40,7 @@ app.controller('mainCtrl', function($scope, $http) {
     //     };
 
     // });
-    console.log(catArray)
+    // console.log(catArray)
     $scope.allData = catArray;
 
     // $http.get('/posts').then(function(response) {
