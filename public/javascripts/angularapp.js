@@ -27,7 +27,7 @@ app.controller('mainCtrl', function($scope, $http) {
                 // console.log(response.data.length)
                 // for (var x = 0; x <= 1; x++) {
                 for (var x = (response.data.length - 1); x > (response.data.length - 3); --x) {
-                    console.log(response.data[x])
+                    // console.log(response.data[x])
                     catArray.push(response.data[x])
 
                 };
@@ -122,7 +122,9 @@ app.controller('mainCtrl', function($scope, $http) {
               // for (var n = 1; n < 2; n++) {
         //         // var everyData = response.data.length;
         //         // for (var n = leng; n <= (leng + 4); n++) {
-                    $scope.allData.push(response.data[response.data.length - resultArray.length - 1])
+                    var nextOne = response.data.length - resultArray.length - 1;
+                    console.log(nextOne)
+                    $scope.allData.push(response.data[nextOne])
         //         // }
         //         // console.log(leng)
               // }      // leng = leng + 4;
