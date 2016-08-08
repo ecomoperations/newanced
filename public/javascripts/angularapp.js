@@ -86,7 +86,7 @@ app.controller('mainCtrl', function($scope, $http) {
 
         // ADD THE REST OF THE ALLPOSTS TO CATARRAY
 
-        var resultArray = catArray.filter(function(x) {
+        var resultArray = $scope.allData.filter(function(x) {
             // console.log(x.category)
             if ( x == undefined) {
                 // console.log("come on")   
