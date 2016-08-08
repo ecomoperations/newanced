@@ -104,7 +104,7 @@
 					</form>
 				</div>
 
-			    <div ng-repeat="post in allData | orderBy: 'publisheAt':true | filter:filter1 " >
+			    <div ng-repeat="post in allData | filter:filter1 " >
 			    	
 
 					<div class="card card-blog">
@@ -117,7 +117,7 @@
 						<div class="content">
 							<h6 class="category text-info-liberal">{{categoryFunction(post)}}</h6>
 							<h4 class="card-title">
-								<a href="/posts/{{post._id}}">{{post.title}}</a>
+								<a href="{{post.link}}">{{post.title}}</a>
 							</h4>
 							<p class="card-description"  >
 								{{post.content | limitTo:250 | stripTags }}<a href="/posts/{{post._id}}"> Read More </a>
@@ -137,7 +137,7 @@
 								
 							</form>
 						</div>
-		       <div ng-repeat="post in allData | orderBy: 'publisheAt':true | filter:filter2 ">
+		       <div ng-repeat="post in allData | filter:filter2 ">
 		    	
 
 					<div class="card card-blog">
@@ -150,7 +150,7 @@
 						<div class="content">
 							<h6 class="category text-info-conservative">{{categoryFunction(post)}}</h6>
 							<h4 class="card-title">
-								<a href="/posts/{{post._id}}">{{post.title}}</a>
+								<a href="{{post.link}}">{{post.title}}</a>
 							</h4>
 							<p class="card-description"  >
 								{{post.content | limitTo:250 | stripTags }}<a href="/posts/{{post._id}}"> Read More </a>

@@ -24,8 +24,10 @@ app.controller('mainCtrl', function($scope, $http) {
 
         
             $http.get(allCats[i]).then(function(response) {
-                for (var x=0; x<=1; x++) {
-
+                // console.log(response.data.length)
+                // for (var x = 0; x <= 1; x++) {
+                for (var x = (response.data.length - 1); x > (response.data.length - 3); --x) {
+                    console.log(response.data[x])
                     catArray.push(response.data[x])
 
                 };
@@ -93,7 +95,7 @@ app.controller('mainCtrl', function($scope, $http) {
             
             return x.category == $scope.filter1.category;
         });
-        console.log(resultArray.length)
+        // console.log(resultArray.length)
      
         // var result = [];
         // catArray.forEach(function(x) {
@@ -117,28 +119,26 @@ app.controller('mainCtrl', function($scope, $http) {
 
 
             $http.get('/category/' + $scope.filter1.category).then(function(response) {
-        for (var n = 0; n < 2; n++) {
+              // for (var n = 1; n < 2; n++) {
         //         // var everyData = response.data.length;
         //         // for (var n = leng; n <= (leng + 4); n++) {
-            
-                    catArray.push(response.data[n + resultArray.length])
-
+                    $scope.allData.push(response.data[response.data.length - resultArray.length - 1])
         //         // }
         //         // console.log(leng)
-              }      // leng = leng + 4;
+              // }      // leng = leng + 4;
             });
 
 
             $http.get('/category/' + $scope.filter2.category).then(function(response) {
-        for (var i = 0; i < 2; i++) {
+              // for (var iter = 1; iter < 2; iter++) {
         //         // var everyData = response.data.length;
         //         // for (var n = leng; n <= (leng + 4); n++) {
             
-                    catArray.push(response.data[i + resultArray.length])
+                    $scope.allData.push(response.data[response.data.length - resultArray.length - 1])
 
         //         // }
         //         // console.log(leng)
-              }      // leng = leng + 4;
+              // }      // leng = leng + 4;
             });
         
     };
