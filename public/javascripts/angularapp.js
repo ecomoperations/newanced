@@ -95,7 +95,7 @@ app.controller('mainCtrl', function($scope, $http) {
             
             return x.category == $scope.filter1.category;
         });
-        // console.log(resultArray.length)
+        console.log(resultArray.length)
      
         // var result = [];
         // catArray.forEach(function(x) {
@@ -123,7 +123,7 @@ app.controller('mainCtrl', function($scope, $http) {
         //         // var everyData = response.data.length;
         //         // for (var n = leng; n <= (leng + 4); n++) {
                     var nextOne = response.data.length - resultArray.length - 1;
-                    console.log(nextOne)
+                    // console.log(nextOne)
                     $scope.allData.push(response.data[nextOne])
         //         // }
         //         // console.log(leng)
