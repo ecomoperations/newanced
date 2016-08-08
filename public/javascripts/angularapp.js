@@ -93,7 +93,7 @@ app.controller('mainCtrl', function($scope, $http) {
                 return false
             }
             
-            return x.category == $scope.filter1.category;
+            return x.category === $scope.filter1.category;
         });
         console.log(resultArray.length)
      
