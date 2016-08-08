@@ -88,7 +88,7 @@ app.controller('mainCtrl', function($scope, $http) {
 
         var resultArray = $scope.allData.filter(function(x) {
             // console.log(x.category)
-            if ( x == undefined) {
+            if ( x === undefined) {
                 // console.log("come on")   
                 return false
             }
