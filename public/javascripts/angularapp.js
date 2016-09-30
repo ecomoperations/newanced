@@ -10,7 +10,7 @@ app.controller('mainCtrl', function($scope, $http) {
    
      var allCats = [
         '/category/30e61230-3bba-11e6-8b89-842b2b5a33d6', '/category/2caf72f6-3bba-11e6-877f-782bcb11749d','/category/fe6b8fe2-3bb9-11e6-877f-782bcb11749d',
-         '/category/f97aa432-3bb9-11e6-be01-782bcb102f71', '/category/81ec195e-3bba-11e6-a82b-782bcb10ee8c','/category/7ba83050-3bba-11e6-be02-782bcb102f71',
+         '/category/f97aa432-3bb9-11e6-be01-782bcb102f71', '/category/783c020a-64d4-11e6-812b-842b2b482ce2','/category/7ba83050-3bba-11e6-be02-782bcb102f71',
         '/category/0fbe7e44-3bba-11e6-bb95-782bcb10f569', '/category/09007af8-3bba-11e6-bd3c-842b2b5a30e0','/category/613dd168-3b31-11e6-bb4d-782bcb10f569',
          '/category/c3be12a2-3bb9-11e6-bb95-782bcb10f569','/category/71d5c898-3bbb-11e6-bfc5-842b2b482ce2', '/category/77fac5ca-3bbb-11e6-9bdc-842b2b6f7849',
         '/category/5f826cd8-3bba-11e6-877f-782bcb11749d', '/category/64bd0758-3bba-11e6-bd3d-842b2b5a30e0','/category/1e902a26-3bba-11e6-8b89-842b2b5a33d6',
@@ -86,7 +86,7 @@ app.controller('mainCtrl', function($scope, $http) {
 
         // ADD THE REST OF THE ALLPOSTS TO CATARRAY
 
-        var resultArray = $scope.allData.filter(function(x) {
+        var resultArray1 = $scope.allData.filter(function(x) {
             // console.log(x.category)
             if ( x === undefined) {
                 // console.log("come on")   
@@ -95,7 +95,17 @@ app.controller('mainCtrl', function($scope, $http) {
             
             return x.category === $scope.filter1.category;
         });
-        console.log(resultArray.length)
+        var resultArray2 = $scope.allData.filter(function(x) {
+            // console.log(x.category)
+            if ( x === undefined) {
+                // console.log("come on")   
+                return false
+            }
+            
+            return x.category === $scope.filter2.category;
+        });
+        console.log(resultArray1.length)
+        console.log(resultArray2.length)
      
         // var result = [];
         // catArray.forEach(function(x) {
@@ -122,7 +132,7 @@ app.controller('mainCtrl', function($scope, $http) {
               // for (var n = 1; n < 2; n++) {
         //         // var everyData = response.data.length;
         //         // for (var n = leng; n <= (leng + 4); n++) {
-                    var nextOne = response.data.length - resultArray.length - 1;
+                    var nextOne = response.data.length - resultArray1.length - 1;
                     // console.log(nextOne)
                     $scope.allData.push(response.data[nextOne])
         //         // }
@@ -136,7 +146,7 @@ app.controller('mainCtrl', function($scope, $http) {
         //         // var everyData = response.data.length;
         //         // for (var n = leng; n <= (leng + 4); n++) {
             
-                    $scope.allData.push(response.data[response.data.length - resultArray.length - 1])
+                    $scope.allData.push(response.data[response.data.length - resultArray2.length - 1])
 
         //         // }
         //         // console.log(leng)
@@ -149,7 +159,7 @@ app.controller('mainCtrl', function($scope, $http) {
     $scope.links = [
         {name: 'Gun Control', category: ['30e61230-3bba-11e6-8b89-842b2b5a33d6', '2caf72f6-3bba-11e6-877f-782bcb11749d']}, //rep, dem
         {name: 'Death Penalty', category: ['fe6b8fe2-3bb9-11e6-877f-782bcb11749d', 'f97aa432-3bb9-11e6-be01-782bcb102f71']}, // support, against
-        {name: 'Presidential Race', category: ['81ec195e-3bba-11e6-a82b-782bcb10ee8c', '7ba83050-3bba-11e6-be02-782bcb102f71']}, // support, against
+        {name: 'Presidential Race', category: ['783c020a-64d4-11e6-812b-842b2b482ce2', '7ba83050-3bba-11e6-be02-782bcb102f71']}, // support, against
         {name: 'Economics', category: ['0fbe7e44-3bba-11e6-bb95-782bcb10f569', '09007af8-3bba-11e6-bd3c-842b2b5a30e0']},
         {name: 'Abortion', category: ['613dd168-3b31-11e6-bb4d-782bcb10f569', 'c3be12a2-3bb9-11e6-bb95-782bcb10f569']},
         {name: 'Taxes', category: ['71d5c898-3bbb-11e6-bfc5-842b2b482ce2', '77fac5ca-3bbb-11e6-9bdc-842b2b6f7849']},
