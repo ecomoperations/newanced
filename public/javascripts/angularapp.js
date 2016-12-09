@@ -9,14 +9,14 @@ app.filter('stripTags', function() {
 app.controller('mainCtrl', function($scope, $http) {
    
      var allCats = [
-        '/category/30e61230-3bba-11e6-8b89-842b2b5a33d6', '/category/2caf72f6-3bba-11e6-877f-782bcb11749d','/category/fe6b8fe2-3bb9-11e6-877f-782bcb11749d',
-         '/category/f97aa432-3bb9-11e6-be01-782bcb102f71', '/category/783c020a-64d4-11e6-812b-842b2b482ce2','/category/7ba83050-3bba-11e6-be02-782bcb102f71',
-        '/category/0fbe7e44-3bba-11e6-bb95-782bcb10f569', '/category/09007af8-3bba-11e6-bd3c-842b2b5a30e0','/category/613dd168-3b31-11e6-bb4d-782bcb10f569',
-         '/category/c3be12a2-3bb9-11e6-bb95-782bcb10f569','/category/71d5c898-3bbb-11e6-bfc5-842b2b482ce2', '/category/77fac5ca-3bbb-11e6-9bdc-842b2b6f7849',
-        '/category/5f826cd8-3bba-11e6-877f-782bcb11749d', '/category/64bd0758-3bba-11e6-bd3d-842b2b5a30e0','/category/1e902a26-3bba-11e6-8b89-842b2b5a33d6',
-         '/category/2434b7f8-3bba-11e6-877f-782bcb11749d','/category/cda03552-3bb9-11e6-bfc3-842b2b482ce2', '/category/d63b6d9e-3bb9-11e6-bfc3-842b2b482ce2',
-        '/category/4de58cda-3bba-11e6-bfc5-842b2b482ce2', '/category/456af554-3bba-11e6-bb95-782bcb10f569','/category/d17a9482-3bba-11e6-b88c-782bcb103767',
-         '/category/9624e0cc-3bba-11e6-877f-782bcb11749d','/category/e32d826c-3bb9-11e6-9bdb-842b2b6f7849', '/category/ee43b16c-3bb9-11e6-a82b-782bcb10ee8c'
+        '/category/cda03552-3bb9-11e6-bfc3-842b2b482ce2', '/category/d63b6d9e-3bb9-11e6-bfc3-842b2b482ce2','/category/1e902a26-3bba-11e6-8b89-842b2b5a33d6',
+         '/category/2434b7f8-3bba-11e6-877f-782bcb11749d', '/category/5f826cd8-3bba-11e6-877f-782bcb11749d','/category/64bd0758-3bba-11e6-bd3d-842b2b5a30e0',
+        '/category/71d5c898-3bbb-11e6-bfc5-842b2b482ce2', '/category/77fac5ca-3bbb-11e6-9bdc-842b2b6f7849','/category/613dd168-3b31-11e6-bb4d-782bcb10f569',
+         '/category/c3be12a2-3bb9-11e6-bb95-782bcb10f569','/category/09007af8-3bba-11e6-bd3c-842b2b5a30e0', '/category/0fbe7e44-3bba-11e6-bb95-782bcb10f569',
+        '/category/456af554-3bba-11e6-bb95-782bcb10f569', '/category/4de58cda-3bba-11e6-bfc5-842b2b482ce2','/category/9624e0cc-3bba-11e6-877f-782bcb11749d',
+         '/category/d17a9482-3bba-11e6-b88c-782bcb103767','/category/e32d826c-3bb9-11e6-9bdb-842b2b6f7849', '/category/ee43b16c-3bb9-11e6-a82b-782bcb10ee8c',
+        '/category/f97aa432-3bb9-11e6-be01-782bcb102f71', '/category/fe6b8fe2-3bb9-11e6-877f-782bcb11749d','/category/2caf72f6-3bba-11e6-877f-782bcb11749d',
+         '/category/30e61230-3bba-11e6-8b89-842b2b5a33d6','/category/7ba83050-3bba-11e6-be02-782bcb102f71', '/category/81ec195e-3bba-11e6-a82b-782bcb10ee8c'
 
     ];
     var catArray = [];
