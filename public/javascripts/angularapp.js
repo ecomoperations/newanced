@@ -83,7 +83,7 @@ app.controller('mainCtrl', function($scope, $http) {
         // var last = (catArray.length - 1);
         // // console.log(last) == 47
         // var iterator = 0;
-
+        console.log("being called")
         // ADD THE REST OF THE ALLPOSTS TO CATARRAY
 
         var resultArray1 = $scope.allData.filter(function(x) {
@@ -131,10 +131,15 @@ app.controller('mainCtrl', function($scope, $http) {
             $http.get('/category/' + $scope.filter1.category).then(function(response) {
               // for (var n = 1; n < 2; n++) {
         //         // var everyData = response.data.length;
+
         //         // for (var n = leng; n <= (leng + 4); n++) {
                     var nextOne = response.data.length - resultArray1.length - 1;
                     // console.log(nextOne)
-                    $scope.allData.push(response.data[nextOne])
+                    // if ( nextOne >= 0) {
+                // console.log("come on")   
+                        $scope.allData.push(response.data[nextOne]);
+                    // }
+                    
         //         // }
         //         // console.log(leng)
               // }      // leng = leng + 4;
@@ -145,8 +150,13 @@ app.controller('mainCtrl', function($scope, $http) {
               // for (var iter = 1; iter < 2; iter++) {
         //         // var everyData = response.data.length;
         //         // for (var n = leng; n <= (leng + 4); n++) {
-            
-                    $scope.allData.push(response.data[response.data.length - resultArray2.length - 1])
+                    var nextOne2 = response.data.length - resultArray2.length - 1;
+                    // console.log(nextOne2)
+                    // if ( nextOne2 >= 0) {
+                // console.log("come on")   
+                    $scope.allData.push(response.data[nextOne2]);
+                    // }
+                    
 
         //         // }
         //         // console.log(leng)
