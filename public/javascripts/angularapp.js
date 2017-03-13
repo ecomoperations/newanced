@@ -9,14 +9,14 @@ app.filter('stripTags', function() {
 app.controller('mainCtrl', function($scope, $http) {
    
      var allCats = [
-        '/category/cda03552-3bb9-11e6-bfc3-842b2b482ce2', '/category/d63b6d9e-3bb9-11e6-bfc3-842b2b482ce2','/category/1e902a26-3bba-11e6-8b89-842b2b5a33d6',
-         '/category/2434b7f8-3bba-11e6-877f-782bcb11749d', '/category/5f826cd8-3bba-11e6-877f-782bcb11749d','/category/64bd0758-3bba-11e6-bd3d-842b2b5a30e0',
-        '/category/71d5c898-3bbb-11e6-bfc5-842b2b482ce2', '/category/77fac5ca-3bbb-11e6-9bdc-842b2b6f7849','/category/613dd168-3b31-11e6-bb4d-782bcb10f569',
-         '/category/c3be12a2-3bb9-11e6-bb95-782bcb10f569','/category/09007af8-3bba-11e6-bd3c-842b2b5a30e0', '/category/0fbe7e44-3bba-11e6-bb95-782bcb10f569',
-        '/category/456af554-3bba-11e6-bb95-782bcb10f569', '/category/4de58cda-3bba-11e6-bfc5-842b2b482ce2','/category/9624e0cc-3bba-11e6-877f-782bcb11749d',
-         '/category/d17a9482-3bba-11e6-b88c-782bcb103767','/category/e32d826c-3bb9-11e6-9bdb-842b2b6f7849', '/category/ee43b16c-3bb9-11e6-a82b-782bcb10ee8c',
-        '/category/f97aa432-3bb9-11e6-be01-782bcb102f71', '/category/fe6b8fe2-3bb9-11e6-877f-782bcb11749d','/category/2caf72f6-3bba-11e6-877f-782bcb11749d',
-         '/category/30e61230-3bba-11e6-8b89-842b2b5a33d6','/category/7ba83050-3bba-11e6-be02-782bcb102f71', '/category/81ec195e-3bba-11e6-a82b-782bcb10ee8c'
+        '/category/783c020a-64d4-11e6-812b-842b2b482ce2', '/category/fa480a28-64d4-11e6-812b-842b2b482ce2','/category/34f02a7c-64d3-11e6-9ebd-842b2b5a2688',
+         '/category/cee13c52-8693-11e6-8e98-842b2b5a33d6', '/category/7b5673e4-8694-11e6-bdcd-842b2b5a30e0','/category/d5e6f190-64d3-11e6-9d20-842b2b6f7849',
+        '/category/ea43ad4a-64d3-11e6-812b-842b2b482ce2', '/category/28bc3f42-64d4-11e6-8d27-842b2b5a33d6','/category/3615ddba-64d4-11e6-9d20-842b2b6f7849',
+         '/category/95740892-64d2-11e6-9ebd-842b2b5a2688','/category/76ece312-64d2-11e6-8d27-842b2b5a33d6', '/category/f14fd902-64d2-11e6-bf72-782bcb102f71',
+        '/category/dfa4346e-64d2-11e6-a98f-782bcb10ee8c', '/category/06041a78-8695-11e6-be97-782bcb10f569','/category/fdeb488e-8694-11e6-9e8d-842b2b6f7849',
+         '/category/a5d71e44-8693-11e6-9efe-842b2b5a2688','/category/8f889fe6-8693-11e6-80c5-782bcb102f71', '/category/8f3b496c-64d3-11e6-bd1d-782bcb10f569',
+        '/category/7fe05f0c-64d3-11e6-812b-842b2b482ce2', '/category/fc226a0e-868b-11e6-8a2c-782bcb11749d','/category/f4111e50-868b-11e6-9e8d-842b2b6f7849',
+         '/category/bd550fe4-8694-11e6-be97-782bcb10f569','/category/ae5bb6d2-8694-11e6-80c5-782bcb102f71', '/category/3d29b0dc-64d3-11e6-812b-842b2b482ce2'
 
     ];
     var catArray = [];
@@ -74,8 +74,8 @@ app.controller('mainCtrl', function($scope, $http) {
 
     // });
 
-    $scope.filter1 = { category: '81ec195e-3bba-11e6-a82b-782bcb10ee8c' };
-	$scope.filter2 = { category: '7ba83050-3bba-11e6-be02-782bcb102f71' };
+    $scope.filter1 = { category: '783c020a-64d4-11e6-812b-842b2b482ce2' };
+	$scope.filter2 = { category: 'fa480a28-64d4-11e6-812b-842b2b482ce2' };
 
 
 
@@ -167,18 +167,18 @@ app.controller('mainCtrl', function($scope, $http) {
 
 	
     $scope.links = [
-        {name: 'Gun Control', category: ['30e61230-3bba-11e6-8b89-842b2b5a33d6', '2caf72f6-3bba-11e6-877f-782bcb11749d']}, // dem, repub
-        {name: 'Death Penalty', category: ['fe6b8fe2-3bb9-11e6-877f-782bcb11749d', 'f97aa432-3bb9-11e6-be01-782bcb102f71']}, // support, against
-        {name: 'Presidential Race', category: ['7ba83050-3bba-11e6-be02-782bcb102f71', '81ec195e-3bba-11e6-a82b-782bcb10ee8c']}, // dem, repub
-        {name: 'Economics', category: ['0fbe7e44-3bba-11e6-bb95-782bcb10f569', '09007af8-3bba-11e6-bd3c-842b2b5a30e0']},
-        {name: 'Abortion', category: ['c3be12a2-3bb9-11e6-bb95-782bcb10f569', '613dd168-3b31-11e6-bb4d-782bcb10f569']},
-        {name: 'Taxes', category: ['77fac5ca-3bbb-11e6-9bdc-842b2b6f7849', '71d5c898-3bbb-11e6-bfc5-842b2b482ce2']},
-        {name: 'Immigration', category: ['64bd0758-3bba-11e6-bd3d-842b2b5a30e0', '5f826cd8-3bba-11e6-877f-782bcb11749d']},
-        {name: 'Foreign Policy', category: ['1e902a26-3bba-11e6-8b89-842b2b5a33d6', '2434b7f8-3bba-11e6-877f-782bcb11749d']},
-        {name: 'Climate Change', category: ['cda03552-3bb9-11e6-bfc3-842b2b482ce2', 'd63b6d9e-3bb9-11e6-bfc3-842b2b482ce2']},
-        {name: 'Health Care', category: ['4de58cda-3bba-11e6-bfc5-842b2b482ce2', '456af554-3bba-11e6-bb95-782bcb10f569']},
-        {name: 'LGBT & Religious Rights', category: ['9624e0cc-3bba-11e6-877f-782bcb11749d', 'd17a9482-3bba-11e6-b88c-782bcb103767']},
-        {name: 'Criminal Justice', category: ['e32d826c-3bb9-11e6-9bdb-842b2b6f7849', 'ee43b16c-3bb9-11e6-a82b-782bcb10ee8c']} //change, as-is
+        {name: 'Gun Control', category: ['3d29b0dc-64d3-11e6-812b-842b2b482ce2', '34f02a7c-64d3-11e6-9ebd-842b2b5a2688']}, // dem, repub
+        {name: 'Death Penalty', category: ['7b5673e4-8694-11e6-bdcd-842b2b5a30e0', 'cee13c52-8693-11e6-8e98-842b2b5a33d6']}, // support, against
+        {name: 'Presidential Race', category: ['fa480a28-64d4-11e6-812b-842b2b482ce2', '783c020a-64d4-11e6-812b-842b2b482ce2']}, // dem, repub
+        {name: 'Economics', category: ['f14fd902-64d2-11e6-bf72-782bcb102f71', 'dfa4346e-64d2-11e6-a98f-782bcb10ee8c']},
+        {name: 'Abortion', category: ['06041a78-8695-11e6-be97-782bcb10f569', 'fdeb488e-8694-11e6-9e8d-842b2b6f7849']},
+        {name: 'Taxes', category: ['a5d71e44-8693-11e6-9efe-842b2b5a2688', '8f889fe6-8693-11e6-80c5-782bcb102f71']},
+        {name: 'Immigration', category: ['8f3b496c-64d3-11e6-bd1d-782bcb10f569', '7fe05f0c-64d3-11e6-812b-842b2b482ce2']},
+        {name: 'Foreign Policy', category: ['fc226a0e-868b-11e6-8a2c-782bcb11749d', 'f4111e50-868b-11e6-9e8d-842b2b6f7849']},
+        {name: 'Climate Change', category: ['bd550fe4-8694-11e6-be97-782bcb10f569', 'ae5bb6d2-8694-11e6-80c5-782bcb102f71']},
+        {name: 'Health Care', category: ['95740892-64d2-11e6-9ebd-842b2b5a2688', '76ece312-64d2-11e6-8d27-842b2b5a33d6']},
+        {name: 'LGBT & Religious Rights', category: ['28bc3f42-64d4-11e6-8d27-842b2b5a33d6', '3615ddba-64d4-11e6-9d20-842b2b6f7849']},
+        {name: 'Criminal Justice', category: ['d5e6f190-64d3-11e6-9d20-842b2b6f7849', 'ea43ad4a-64d3-11e6-812b-842b2b482ce2']} //change, as-is
         
     ];
 
