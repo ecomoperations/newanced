@@ -174,21 +174,13 @@ app.controller('mainCtrl', function($scope, $http) {
 
 
             $http.get('/category/' + $scope.filter1.category).then(function(response) {
-              // for (var n = 1; n < 2; n++) {
-        //         // var everyData = response.data.length;
-        // console.log("being called")
-
-        //         // for (var n = leng; n <= (leng + 4); n++) {
-                    var nextOne = response.data.length - resultArray1.length;
-                    // console.log(nextOne)
-                    // if ( nextOne >= 0) {
-                // console.log("come on")   
-                        $scope.allData.push(response.data[nextOne]);
-                    // }
+             
+                    // var nextOne = response.data.length - resultArray1.length - 1;
+                     
+                    //     $scope.allData.push(response.data[nextOne]);
                     
-        //         // }
-        //         // console.log(leng)
-              // }      // leng = leng + 4;
+                    $scope.allData = $scope.allData.concat(response.data);
+      
               $scope.scrollIsFree = true;
             }).then(function(err) {
                 $scope.scrollIsFree = true;
@@ -196,21 +188,12 @@ app.controller('mainCtrl', function($scope, $http) {
 
 
             $http.get('/category/' + $scope.filter2.category).then(function(response) {
-              // for (var iter = 1; iter < 2; iter++) {
-                // console.log("being called")
-        //         // var everyData = response.data.length;
-        //         // for (var n = leng; n <= (leng + 4); n++) {
-                    var nextOne2 = response.data.length - resultArray2.length;
-                    // console.log(nextOne2)
-                    // if ( nextOne2 >= 0) {
-                // console.log("come on")   
-                    $scope.allData.push(response.data[nextOne2]);
-                    // }
+        
+                    // var nextOne2 = response.data.length - resultArray2.length - 1;
+                  
+                    // $scope.allData.push(response.data[nextOne2]);
+                    $scope.allData = $scope.allData.concat(response.data);
                     
-
-        //         // }
-        //         // console.log(leng)
-              // }      // leng = leng + 4;
               $scope.scrollIsFree = true;
             }).then(function(err) {
                 $scope.scrollIsFree = true;
