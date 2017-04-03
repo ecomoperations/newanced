@@ -176,10 +176,10 @@ app.controller('mainCtrl', function($scope, $http) {
             $http.get('/category/' + $scope.filter1.category).then(function(response) {
               // for (var n = 1; n < 2; n++) {
         //         // var everyData = response.data.length;
-        console.log("being called")
+        // console.log("being called")
 
         //         // for (var n = leng; n <= (leng + 4); n++) {
-                    var nextOne = response.data.length - resultArray1.length - 1;
+                    var nextOne = response.data.length - resultArray1.length;
                     // console.log(nextOne)
                     // if ( nextOne >= 0) {
                 // console.log("come on")   
@@ -197,10 +197,10 @@ app.controller('mainCtrl', function($scope, $http) {
 
             $http.get('/category/' + $scope.filter2.category).then(function(response) {
               // for (var iter = 1; iter < 2; iter++) {
-                console.log("being called")
+                // console.log("being called")
         //         // var everyData = response.data.length;
         //         // for (var n = leng; n <= (leng + 4); n++) {
-                    var nextOne2 = response.data.length - resultArray2.length - 1;
+                    var nextOne2 = response.data.length - resultArray2.length;
                     // console.log(nextOne2)
                     // if ( nextOne2 >= 0) {
                 // console.log("come on")   
