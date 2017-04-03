@@ -8,6 +8,9 @@ app.filter('stripTags', function() {
 
 app.controller('mainCtrl', function($scope, $http) {
    
+    $scope.scrollIsFree1 = true;
+    $scope.scrollIsFree2 = true;
+
      var allCats = [
         '/category/783c020a-64d4-11e6-812b-842b2b482ce2', '/category/fa480a28-64d4-11e6-812b-842b2b482ce2','/category/34f02a7c-64d3-11e6-9ebd-842b2b5a2688',
          '/category/cee13c52-8693-11e6-8e98-842b2b5a33d6', '/category/7b5673e4-8694-11e6-bdcd-842b2b5a30e0','/category/d5e6f190-64d3-11e6-9d20-842b2b6f7849',
@@ -28,6 +31,8 @@ app.controller('mainCtrl', function($scope, $http) {
                 // for (var x = 0; x <= 1; x++) {
                 for (var x = (response.data.length - 1); x > (response.data.length - 3); --x) {
                     // console.log(response.data[x])
+                    response.data[x].scrollIsFree = true;
+                    // response.data[x].posts = [];
                     catArray.push(response.data[x])
 
                 };
@@ -49,6 +54,7 @@ app.controller('mainCtrl', function($scope, $http) {
 
 
     $scope.allData = catArray;
+    console.log("$scope.allData",$scope.allData);
     // console.log($scope.allData.length)
     
 
@@ -75,16 +81,55 @@ app.controller('mainCtrl', function($scope, $http) {
     // });
 
     $scope.filter1 = { category: '783c020a-64d4-11e6-812b-842b2b482ce2' };
+    console.log("$scope.filter1", $scope.filter1);
+
 	$scope.filter2 = { category: 'fa480a28-64d4-11e6-812b-842b2b482ce2' };
 
+
+     $scope.addMoreFilter = function(itemId){
+        if(!$scope.allData.scrollIsFree){
+            return;
+        }
+
+        $scope.allData.scrollIsFree = false;
+
+        /*var resultArray1 = $scope.allData.filter(function(x) {
+            // console.log(x.category)
+            if ( x === undefined) {
+                // console.log("come on")   
+                return false
+            }
+            
+            return x.category === $scope.filter1.category;
+        });*/
+
+        $http.get('/category/' + $scope.allData.category).then(function(response) {
+    
+            //var nextOne = response.data.length - resultArray1.length - 1;
+            $scope.allData = $scope.allData.concat(response.data);
+            //$scope.allData.posts.push(response.data[nextOne]);
+            $scope.allData.scrollIsFree = true;
+
+        }).then(function(err) {
+            $scope.allData.scrollIsFree = true;
+        });
+
+    }
 
 
     $scope.addMore = function() {
         // var last = (catArray.length - 1);
         // // console.log(last) == 47
         // var iterator = 0;
-        console.log("being called")
+        
         // ADD THE REST OF THE ALLPOSTS TO CATARRAY
+
+        // if(!$scope.scrollIsFree){
+        //     return;
+        // }
+
+         $scope.scrollIsFree = false;
+
 
         var resultArray1 = $scope.allData.filter(function(x) {
             // console.log(x.category)
@@ -131,6 +176,7 @@ app.controller('mainCtrl', function($scope, $http) {
             $http.get('/category/' + $scope.filter1.category).then(function(response) {
               // for (var n = 1; n < 2; n++) {
         //         // var everyData = response.data.length;
+        console.log("being called")
 
         //         // for (var n = leng; n <= (leng + 4); n++) {
                     var nextOne = response.data.length - resultArray1.length - 1;
@@ -143,11 +189,15 @@ app.controller('mainCtrl', function($scope, $http) {
         //         // }
         //         // console.log(leng)
               // }      // leng = leng + 4;
+              $scope.scrollIsFree = true;
+            }).then(function(err) {
+                $scope.scrollIsFree = true;
             });
 
 
             $http.get('/category/' + $scope.filter2.category).then(function(response) {
               // for (var iter = 1; iter < 2; iter++) {
+                console.log("being called")
         //         // var everyData = response.data.length;
         //         // for (var n = leng; n <= (leng + 4); n++) {
                     var nextOne2 = response.data.length - resultArray2.length - 1;
@@ -161,6 +211,9 @@ app.controller('mainCtrl', function($scope, $http) {
         //         // }
         //         // console.log(leng)
               // }      // leng = leng + 4;
+              $scope.scrollIsFree = true;
+            }).then(function(err) {
+                $scope.scrollIsFree = true;
             });
         
     };

@@ -90,7 +90,7 @@
 			    <li class="col-md-1 col-xs-4"><a ng-click="filter1.category = 'ea43ad4a-64d3-11e6-812b-842b2b482ce2'; filter2.category = 'd5e6f190-64d3-11e6-9d20-842b2b6f7849' " role="tab" data-toggle="tab"><i class="material-icons">directions_run</i>Criminal Justice</a>
 			    </li>
 			</ul>
-		<div class="container" infinite-scroll="addMore()"  infinite-scroll-use-document-bottom="1" >
+		<div class="container" >
 
 
 			<div class="col-xs-6" >
@@ -104,7 +104,7 @@
 						
 					</form>
 				</div>
-
+				<div class="" infinite-scroll="addMore()"  infinite-scroll-distance="1">
 			    <div ng-repeat="post in allData | filter:filter1 " >
 			    	
 
@@ -125,6 +125,7 @@
 							</p>
 						</div>
 					</div>
+					</div>
 			    </div>
 		    </div>
 		    <div class="col-xs-6" >
@@ -138,6 +139,7 @@
 								
 							</form>
 						</div>
+				<div class="" infinite-scroll="addMore()"  infinite-scroll-distance="1">
 		       <div ng-repeat="post in allData | filter:filter2 ">
 		    	
 
@@ -158,6 +160,7 @@
 							</p>
 						</div>
 					</div>
+		    	</div>
 		    	</div>
 		    </div>
 		</div>    
