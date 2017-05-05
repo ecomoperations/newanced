@@ -1,12 +1,78 @@
 var app = angular.module('myApp', ['infinite-scroll']);
 
+
 app.filter('stripTags', function() {
     return function(text) {
         return  text ? String(text).replace(/<(?:.|\n)*?>/gm, '') : '';
     };
 });
 
-app.controller('mainCtrl', function($scope, $http) {
+
+
+app.factory('catFactory', function($http) {
+  var catFactory = function() {
+    this.items = [];
+    this.busy = false;
+    this.page = 1;
+
+     // CAN WE PUT THE PAGE BACK TO ONE AFTER SWITCHING?
+     // CAN WE PUT THE PAGE BACK TO ONE AFTER SWITCHING?
+     // CAN WE PUT THE PAGE BACK TO ONE AFTER SWITCHING?
+     // CAN WE PUT THE PAGE BACK TO ONE AFTER SWITCHING?
+    // this.after = '';
+  };
+
+  catFactory.prototype.page1 = function() {
+    this.page = 1;
+    console.log(this.page)
+  };
+
+  catFactory.prototype.nextPage = function(x) {
+    if (this.busy) return;
+    
+        this.busy = true;
+    // var count = 5;
+    // console.log(this.page)
+    // console.log(x)
+
+    $http.get('/category/' + x).then(function(response) {
+        // + $scope.filter1.category
+
+      var posts = response.data;
+     
+     // TRY CHANGING THE FOR LOOP BELOW BECAUSE THIS.POSTS IS TOO LONG
+     // TRY CHANGING THE FOR LOOP BELOW BECAUSE THIS.POSTS IS TOO LONG
+     // TRY CHANGING THE FOR LOOP BELOW BECAUSE THIS.POSTS IS TOO LONG
+     // TRY CHANGING THE FOR LOOP BELOW BECAUSE THIS.POSTS IS TOO LONG
+     // TRY CHANGING THE FOR LOOP BELOW BECAUSE THIS.POSTS IS TOO LONG
+
+      for (var i = (posts.length - (this.page)); i > (posts.length - (this.page) - 4); --i) {
+        this.items.push(posts[i]);
+        // console.log(i)
+      }
+      
+      this.page = this.page + 3;
+
+      this.busy = false;
+
+    }.bind(this));
+  };
+
+  return catFactory;
+});
+
+
+
+app.controller('mainCtrl', function($scope, $http, catFactory) {
+
+    $scope.filter1 = { category: '783c020a-64d4-11e6-812b-842b2b482ce2' };
+
+    // console.log($scope.filter1.category);
+
+    $scope.filter2 = { category: 'fa480a28-64d4-11e6-812b-842b2b482ce2' };
+
+    $scope.catFactory = new catFactory();
+
    
     $scope.scrollIsFree1 = true;
     $scope.scrollIsFree2 = true;
@@ -54,7 +120,7 @@ app.controller('mainCtrl', function($scope, $http) {
 
 
     $scope.allData = catArray;
-    console.log("$scope.allData",$scope.allData);
+    // console.log("$scope.allData",$scope.allData);
     // console.log($scope.allData.length)
     
 
@@ -80,106 +146,89 @@ app.controller('mainCtrl', function($scope, $http) {
 
     // });
 
-    $scope.filter1 = { category: '783c020a-64d4-11e6-812b-842b2b482ce2' };
-    console.log("$scope.filter1", $scope.filter1);
+ //    $scope.filter1 = { category: '783c020a-64d4-11e6-812b-842b2b482ce2' };
 
-	$scope.filter2 = { category: 'fa480a28-64d4-11e6-812b-842b2b482ce2' };
+ //    console.log($scope.filter1.category);
+
+	// $scope.filter2 = { category: 'fa480a28-64d4-11e6-812b-842b2b482ce2' };
 
 
-     $scope.addMoreFilter = function(itemId){
-        if(!$scope.allData.scrollIsFree){
-            return;
-        }
+    //  $scope.addMoreFilter = function(itemId){
+    //     if(!$scope.allData.scrollIsFree){
+    //         return;
+    //     }
 
-        $scope.allData.scrollIsFree = false;
+    //     $scope.allData.scrollIsFree = false;
 
-        /*var resultArray1 = $scope.allData.filter(function(x) {
-            // console.log(x.category)
-            if ( x === undefined) {
-                // console.log("come on")   
-                return false
-            }
+    //     var resultArray1 = $scope.allData.filter(function(x) {
+    //         // console.log(x.category)
+    //         if ( x === undefined) {
+    //             // console.log("come on")   
+    //             return false
+    //         }
             
-            return x.category === $scope.filter1.category;
-        });*/
+    //         return x.category === $scope.filter1.category;
+    //     });
 
-        $http.get('/category/' + $scope.allData.category).then(function(response) {
+    //     $http.get('/category/' + $scope.allData.category).then(function(response) {
     
-            //var nextOne = response.data.length - resultArray1.length - 1;
-            $scope.allData = $scope.allData.concat(response.data);
-            //$scope.allData.posts.push(response.data[nextOne]);
-            $scope.allData.scrollIsFree = true;
+    //         //var nextOne = response.data.length - resultArray1.length - 1;
+    //         $scope.allData = $scope.allData.concat(response.data);
+    //         //$scope.allData.posts.push(response.data[nextOne]);
+    //         $scope.allData.scrollIsFree = true;
 
-        }).then(function(err) {
-            $scope.allData.scrollIsFree = true;
-        });
+    //     }).then(function(err) {
+    //         $scope.allData.scrollIsFree = true;
+    //     });
 
-    }
+    // }
 
 
     $scope.addMore = function() {
-        // var last = (catArray.length - 1);
-        // // console.log(last) == 47
-        // var iterator = 0;
-        
-        // ADD THE REST OF THE ALLPOSTS TO CATARRAY
-
-        // if(!$scope.scrollIsFree){
-        //     return;
-        // }
-
+    
+        // console.log("being called")
          $scope.scrollIsFree = false;
 
 
-        var resultArray1 = $scope.allData.filter(function(x) {
-            // console.log(x.category)
-            if ( x === undefined) {
-                // console.log("come on")   
-                return false
-            }
+        // var resultArray1 = $scope.allData.filter(function(x) {
+        //     // console.log(x.category)
+        //     if ( x === undefined) {
+        //         // console.log("come on")   
+        //         return false
+        //     }
             
-            return x.category === $scope.filter1.category;
-        });
-        var resultArray2 = $scope.allData.filter(function(x) {
-            // console.log(x.category)
-            if ( x === undefined) {
-                // console.log("come on")   
-                return false
-            }
-            
-            return x.category === $scope.filter2.category;
-        });
-        console.log(resultArray1.length)
-        console.log(resultArray2.length)
-     
-        // var result = [];
-        // catArray.forEach(function(x) {
-        //     if (x === undefined) result.push("hello");
+        //     return x.category === $scope.filter1.category;
         // });
-        // console.log(result)
-
-        // console.log(resultArray);
-        // console.log(catArray.length)
-        // console.log($scope.filter1)
-        // // console.log(catArray[3])  
-        // for (var n=0; n < catArray.length; n++) {
-        //     console.log(catArray[n].category)
-        //     var theCat = catArray[n].category;
-        //   if ( theCat == $scope.filter1.category ) {
+        // var resultArray2 = $scope.allData.filter(function(x) {
+        //     // console.log(x.category)
+        //     if ( x === undefined) {
+        //         // console.log("come on")   
+        //         return false
+        //     }
             
-        //     iterator++
-        //   }
-        // }
-        // console.log(iterator)
+        //     return x.category === $scope.filter2.category;
+        // });
+        // console.log(resultArray1.length )
+        // console.log($scope.filter1.category.length)
+        // console.log(resultArray2.length )
+        // console.log($scope.filter2.category.length)
+     
+        
 
 
             $http.get('/category/' + $scope.filter1.category).then(function(response) {
-             
+                    console.log(response.data.length)
                     // var nextOne = response.data.length - resultArray1.length - 1;
-                     
+                    nextOne = $scope.filter1.category.length;
+                    // console.log(resultArray1.length);
+                    // for(var i = resultArray1.length - 2; i <= resultArray1.length; i++) {
+                    //   $scope.allData = $scope.allData.concat(response.data[i]);
+                    // }
+
+                    // console.log(nextOne)
                     //     $scope.allData.push(response.data[nextOne]);
                     
-                    $scope.allData = $scope.allData.concat(response.data);
+                    $scope.allData = $scope.allData.concat(response.data[nextOne]);
       
               $scope.scrollIsFree = true;
             }).then(function(err) {
@@ -188,12 +237,16 @@ app.controller('mainCtrl', function($scope, $http) {
 
 
             $http.get('/category/' + $scope.filter2.category).then(function(response) {
-        
+                console.log(response.data.length)
                     // var nextOne2 = response.data.length - resultArray2.length - 1;
-                  
+                  nextOne2 = $scope.filter2.category.length;
+                   // for(var i = resultArray2.length - 2; i <= resultArray2.length; i++) {
+                   //    $scope.allData = $scope.allData.concat(response.data[i]);
+                   //  }
+                  // console.log(nextOne2)
                     // $scope.allData.push(response.data[nextOne2]);
-                    $scope.allData = $scope.allData.concat(response.data);
-                    
+                    $scope.allData = $scope.allData.concat(response.data[nextOne2]);
+
               $scope.scrollIsFree = true;
             }).then(function(err) {
                 $scope.scrollIsFree = true;
