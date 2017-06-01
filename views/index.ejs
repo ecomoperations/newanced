@@ -116,7 +116,7 @@
 						<div class="content">
 							<h6 class="category text-info-liberal">{{categoryFunction(post)}}</h6>
 							<h4 class="card-title">
-								<a href="{{post.link}}">{{post.title}}</a>
+								<a href="{{post.link}}" target="_blank">{{post.title}}</a>
 							</h4>
 							<p class="card-description"  >
 								{{post.content | limitTo:250 | stripTags }}<a href="/posts/{{post._id}}" target="_blank"> Read More </a>
@@ -160,7 +160,7 @@
 						<div class="content">
 							<h6 class="category text-info-conservative">{{categoryFunction(post)}}</h6>
 							<h4 class="card-title">
-								<a href="{{post.link}}">{{post.title}}</a>
+								<a href="{{post.link}}" target="_blank">{{post.title}}</a>
 							</h4>
 							<p class="card-description"  >
 								{{post.content | limitTo:250 | stripTags }}<a href="/posts/{{post._id}}" target="_blank"> Read More </a>
