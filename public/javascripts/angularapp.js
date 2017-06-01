@@ -65,11 +65,11 @@ app.factory('catFactory', function($http) {
 
 app.controller('mainCtrl', function($scope, $http, catFactory) {
 
-    $scope.filter1 = { category: '783c020a-64d4-11e6-812b-842b2b482ce2' };
+    $scope.filter1 = { category: 'fa480a28-64d4-11e6-812b-842b2b482ce2' };
 
     // console.log($scope.filter1.category);
 
-    $scope.filter2 = { category: 'fa480a28-64d4-11e6-812b-842b2b482ce2' };
+    $scope.filter2 = { category: '783c020a-64d4-11e6-812b-842b2b482ce2' };
 
     $scope.catFactory = new catFactory();
 
