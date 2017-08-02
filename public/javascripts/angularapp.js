@@ -1,4 +1,8 @@
-var app = angular.module('myApp', ['infinite-scroll']);
+
+
+var app = angular.module('myApp', ['infinite-scroll', 'ui.router']);
+
+
 
 
 app.filter('stripTags', function() {
@@ -9,25 +13,181 @@ app.filter('stripTags', function() {
 
 
 
+app.config(function($stateProvider, $urlRouterProvider) {
+
+  $urlRouterProvider.otherwise('/trump');
+
+  var gunControlState = {
+    name: 'guncontrol',
+    url: '/guncontrol',
+    params: {
+      libCat: "3d29b0dc-64d3-11e6-812b-842b2b482ce2",
+      conCat: "34f02a7c-64d3-11e6-9ebd-842b2b5a2688"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/guncontrol.html'
+  }
+
+  var trumpState = {
+    name: 'trump',
+    url: '/trump',
+    params: {
+      libCat: "783c020a-64d4-11e6-812b-842b2b482ce2",
+      conCat: "fa480a28-64d4-11e6-812b-842b2b482ce2"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/trump.html'
+  }
+
+  var deathPenaltyState = {
+    name: 'deathpenalty',
+    url: '/deathpenalty',
+    params: {
+      libCat: "cee13c52-8693-11e6-8e98-842b2b5a33d6",
+      conCat: "7b5673e4-8694-11e6-bdcd-842b2b5a30e0"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/deathpenalty.html'
+  }
+
+
+  var economicsState = {
+    name: 'economics',
+    url: '/economics',
+    params: {
+      libCat: "dfa4346e-64d2-11e6-a98f-782bcb10ee8c",
+      conCat: "f14fd902-64d2-11e6-bf72-782bcb102f71"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/economics.html'
+  }
+
+  var abortionState = {
+    name: 'abortion',
+    url: '/abortion',
+    params: {
+      libCat: "fdeb488e-8694-11e6-9e8d-842b2b6f7849",
+      conCat: "06041a78-8695-11e6-be97-782bcb10f569"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/abortion.html'
+  }
+
+  var taxesState = {
+    name: 'taxes',
+    url: '/taxes',
+    params: {
+      libCat: "8f889fe6-8693-11e6-80c5-782bcb102f71",
+      conCat: "a5d71e44-8693-11e6-9efe-842b2b5a2688"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/taxes.html'
+  }
+
+  var immigrationState = {
+    name: 'immigration',
+    url: '/immigration',
+    params: {
+      libCat: "7fe05f0c-64d3-11e6-812b-842b2b482ce2",
+      conCat: "8f3b496c-64d3-11e6-bd1d-782bcb10f569"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/immigration.html'
+  }
+
+  var foreignPolicyState = {
+    name: 'foreignpolicy',
+    url: '/foreignpolicy',
+    params: {
+      libCat: "f4111e50-868b-11e6-9e8d-842b2b6f7849",
+      conCat: "fc226a0e-868b-11e6-8a2c-782bcb11749d"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/foreignpolicy.html'
+  }
+
+  var climateChangeState = {
+    name: 'climatechange',
+    url: '/climatechange',
+    params: {
+      libCat: "ae5bb6d2-8694-11e6-80c5-782bcb102f71",
+      conCat: "bd550fe4-8694-11e6-be97-782bcb10f569"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/climatechange.html'
+  }
+
+  var healthCareState = {
+    name: 'healthcare',
+    url: '/healthcare',
+    params: {
+      libCat: "76ece312-64d2-11e6-8d27-842b2b5a33d6",
+      conCat: "95740892-64d2-11e6-9ebd-842b2b5a2688"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/healthcare.html'
+  }
+
+  var lgbtreligiousState = {
+    name: 'lgbtreligious',
+    url: '/lgbtreligious',
+    params: {
+      libCat: "3615ddba-64d4-11e6-9d20-842b2b6f7849",
+      conCat: "28bc3f42-64d4-11e6-8d27-842b2b5a33d6"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/lgbtreligious.html'
+  }
+
+  var criminalJusticeState = {
+    name: 'criminaljustice',
+    url: '/criminaljustice',
+    params: {
+      libCat: "ea43ad4a-64d3-11e6-812b-842b2b482ce2",
+      conCat: "d5e6f190-64d3-11e6-9d20-842b2b6f7849"
+    },
+    controller: 'mainCtrl',
+    templateUrl: '/criminaljustice.html'
+  }
+
+  $stateProvider.state(trumpState);
+  $stateProvider.state(deathPenaltyState);
+  $stateProvider.state(gunControlState);
+  $stateProvider.state(criminalJusticeState);
+  $stateProvider.state(lgbtreligiousState);
+  $stateProvider.state(healthCareState);
+  $stateProvider.state(climateChangeState);
+  $stateProvider.state(foreignPolicyState);
+  $stateProvider.state(immigrationState);
+  $stateProvider.state(taxesState);
+  $stateProvider.state(abortionState);
+  $stateProvider.state(economicsState);
+});
+
+
+// angular.module('myApp').component('trump', {
+//   bindings: { trump: '<' },
+  
+//   templateUrl: '/trump.html'
+// });
+
+
 app.factory('catFactory', function($http) {
   var catFactory = function() {
     this.items = [];
+    // console.log(this.items)
     this.busy = false;
     this.page = 1;
-
-     // CAN WE PUT THE PAGE BACK TO ONE AFTER SWITCHING?
-     // CAN WE PUT THE PAGE BACK TO ONE AFTER SWITCHING?
-     // CAN WE PUT THE PAGE BACK TO ONE AFTER SWITCHING?
-     // CAN WE PUT THE PAGE BACK TO ONE AFTER SWITCHING?
-    // this.after = '';
+   
   };
 
   catFactory.prototype.page1 = function() {
     this.page = 1;
-    console.log(this.page)
+    // console.log(this.page)
   };
 
   catFactory.prototype.nextPage = function(x) {
+    
     if (this.busy) return;
     
         this.busy = true;
@@ -37,20 +197,16 @@ app.factory('catFactory', function($http) {
 
     $http.get('/category/' + x).then(function(response) {
         // + $scope.filter1.category
-
+        // console.log(response)
+        // console.log(this.page)
       var posts = response.data;
-     
-     // TRY CHANGING THE FOR LOOP BELOW BECAUSE THIS.POSTS IS TOO LONG
-     // TRY CHANGING THE FOR LOOP BELOW BECAUSE THIS.POSTS IS TOO LONG
-     // TRY CHANGING THE FOR LOOP BELOW BECAUSE THIS.POSTS IS TOO LONG
-     // TRY CHANGING THE FOR LOOP BELOW BECAUSE THIS.POSTS IS TOO LONG
-     // TRY CHANGING THE FOR LOOP BELOW BECAUSE THIS.POSTS IS TOO LONG
+     // console.log(posts)
 
       for (var i = (posts.length - (this.page)); i > (posts.length - (this.page) - 4); --i) {
         this.items.push(posts[i]);
         // console.log(i)
       }
-      
+      // console.log(this.items)
       this.page = this.page + 3;
 
       this.busy = false;
@@ -63,16 +219,23 @@ app.factory('catFactory', function($http) {
 
 
 
-app.controller('mainCtrl', function($scope, $http, catFactory) {
+app.controller('mainCtrl', function($scope, $http, catFactory, $stateParams) {
 
-    $scope.filter1 = { category: 'fa480a28-64d4-11e6-812b-842b2b482ce2' };
 
-    // console.log($scope.filter1.category);
 
-    $scope.filter2 = { category: '783c020a-64d4-11e6-812b-842b2b482ce2' };
+    $scope.filter1 = { category: $stateParams.libCat || "783c020a-64d4-11e6-812b-842b2b482ce2"};
+    $scope.filter2 = { category: $stateParams.conCat || "fa480a28-64d4-11e6-812b-842b2b482ce2"};
+
+
+
 
     $scope.catFactory = new catFactory();
+    // catFactory.page1()
+    // console.log($scope.catFactory.items)
+    // $scope.catFactory.nextPage("783c020a-64d4-11e6-812b-842b2b482ce2");
+    
 
+    
    
     $scope.scrollIsFree1 = true;
     $scope.scrollIsFree2 = true;
@@ -99,7 +262,7 @@ app.controller('mainCtrl', function($scope, $http, catFactory) {
                     // console.log(response.data[x])
                     response.data[x].scrollIsFree = true;
                     // response.data[x].posts = [];
-                    catArray.push(response.data[x])
+                     $scope.catFactory.items.push(response.data[x])
 
                 };
                 // console.log(catArray.length)
@@ -107,6 +270,11 @@ app.controller('mainCtrl', function($scope, $http, catFactory) {
         
     };
 
+    console.log($scope.catFactory.items)
+    // console.log(catArray)
+    // $scope.catFactory.items.push(catArray)
+
+    // console.log($scope.catFactory.items[0])
 
     // allCats.forEach(function(cat) {
     //     var catArray = [];
@@ -119,7 +287,11 @@ app.controller('mainCtrl', function($scope, $http, catFactory) {
     // });
 
 
-    $scope.allData = catArray;
+    // $scope.allData = catArray;
+
+    // $scope.catFactory.items.push(allData);
+
+
     // console.log("$scope.allData",$scope.allData);
     // console.log($scope.allData.length)
     
@@ -184,75 +356,75 @@ app.controller('mainCtrl', function($scope, $http, catFactory) {
     // }
 
 
-    $scope.addMore = function() {
+    // $scope.addMore = function() {
     
-        // console.log("being called")
-         $scope.scrollIsFree = false;
+    //     console.log("being called")
+    //      $scope.scrollIsFree = false;
 
 
-        // var resultArray1 = $scope.allData.filter(function(x) {
-        //     // console.log(x.category)
-        //     if ( x === undefined) {
-        //         // console.log("come on")   
-        //         return false
-        //     }
+    //     // var resultArray1 = $scope.allData.filter(function(x) {
+    //     //     // console.log(x.category)
+    //     //     if ( x === undefined) {
+    //     //         // console.log("come on")   
+    //     //         return false
+    //     //     }
             
-        //     return x.category === $scope.filter1.category;
-        // });
-        // var resultArray2 = $scope.allData.filter(function(x) {
-        //     // console.log(x.category)
-        //     if ( x === undefined) {
-        //         // console.log("come on")   
-        //         return false
-        //     }
+    //     //     return x.category === $scope.filter1.category;
+    //     // });
+    //     // var resultArray2 = $scope.allData.filter(function(x) {
+    //     //     // console.log(x.category)
+    //     //     if ( x === undefined) {
+    //     //         // console.log("come on")   
+    //     //         return false
+    //     //     }
             
-        //     return x.category === $scope.filter2.category;
-        // });
-        // console.log(resultArray1.length )
-        // console.log($scope.filter1.category.length)
-        // console.log(resultArray2.length )
-        // console.log($scope.filter2.category.length)
+    //     //     return x.category === $scope.filter2.category;
+    //     // });
+    //     // console.log(resultArray1.length )
+    //     // console.log($scope.filter1.category.length)
+    //     // console.log(resultArray2.length )
+    //     // console.log($scope.filter2.category.length)
      
         
 
 
-            $http.get('/category/' + $scope.filter1.category).then(function(response) {
-                    console.log(response.data.length)
-                    // var nextOne = response.data.length - resultArray1.length - 1;
-                    nextOne = $scope.filter1.category.length;
-                    // console.log(resultArray1.length);
-                    // for(var i = resultArray1.length - 2; i <= resultArray1.length; i++) {
-                    //   $scope.allData = $scope.allData.concat(response.data[i]);
-                    // }
+    //         $http.get('/category/' + $scope.filter1.category).then(function(response) {
+    //                 console.log(response.data.length)
+    //                 // var nextOne = response.data.length - resultArray1.length - 1;
+    //                 nextOne = $scope.filter1.category.length;
+    //                 // console.log(resultArray1.length);
+    //                 // for(var i = resultArray1.length - 2; i <= resultArray1.length; i++) {
+    //                 //   $scope.allData = $scope.allData.concat(response.data[i]);
+    //                 // }
 
-                    // console.log(nextOne)
-                    //     $scope.allData.push(response.data[nextOne]);
+    //                 // console.log(nextOne)
+    //                 //     $scope.allData.push(response.data[nextOne]);
                     
-                    $scope.allData = $scope.allData.concat(response.data[nextOne]);
+    //                 $scope.allData = $scope.allData.concat(response.data[nextOne]);
       
-              $scope.scrollIsFree = true;
-            }).then(function(err) {
-                $scope.scrollIsFree = true;
-            });
+    //           $scope.scrollIsFree = true;
+    //         }).then(function(err) {
+    //             $scope.scrollIsFree = true;
+    //         });
 
 
-            $http.get('/category/' + $scope.filter2.category).then(function(response) {
-                console.log(response.data.length)
-                    // var nextOne2 = response.data.length - resultArray2.length - 1;
-                  nextOne2 = $scope.filter2.category.length;
-                   // for(var i = resultArray2.length - 2; i <= resultArray2.length; i++) {
-                   //    $scope.allData = $scope.allData.concat(response.data[i]);
-                   //  }
-                  // console.log(nextOne2)
-                    // $scope.allData.push(response.data[nextOne2]);
-                    $scope.allData = $scope.allData.concat(response.data[nextOne2]);
+    //         $http.get('/category/' + $scope.filter2.category).then(function(response) {
+    //             console.log(response.data.length)
+    //                 // var nextOne2 = response.data.length - resultArray2.length - 1;
+    //               nextOne2 = $scope.filter2.category.length;
+    //                // for(var i = resultArray2.length - 2; i <= resultArray2.length; i++) {
+    //                //    $scope.allData = $scope.allData.concat(response.data[i]);
+    //                //  }
+    //               // console.log(nextOne2)
+    //                 // $scope.allData.push(response.data[nextOne2]);
+    //                 $scope.allData = $scope.allData.concat(response.data[nextOne2]);
 
-              $scope.scrollIsFree = true;
-            }).then(function(err) {
-                $scope.scrollIsFree = true;
-            });
+    //           $scope.scrollIsFree = true;
+    //         }).then(function(err) {
+    //             $scope.scrollIsFree = true;
+    //         });
         
-    };
+    // };
 
 	
     $scope.links = [
