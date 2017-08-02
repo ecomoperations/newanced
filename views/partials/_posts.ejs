@@ -22,6 +22,9 @@
 			  
 			      <div style='clear: both;'></div> 
 	      </div>
+	      <div class="span" ng-show='catFactory.busy' >
+                   <div class="timer"></div>
+          </div>
 	</div>
 </div>
 <div infinite-scroll='catFactory.nextPage("{{filter2.category}}")' infinite-scroll-disabled='catFactory.busy' infinite-scroll-distance='1'>
@@ -48,6 +51,10 @@
 			  
 			      <div style='clear: both;'></div> 
 	      </div>
+	      
+	      <div class="span" ng-show='catFactory.busy' >
+                   <div class="timer"></div>
+          </div>
 	      
 	</div>
 </div>

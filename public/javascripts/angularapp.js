@@ -192,7 +192,7 @@ app.factory('catFactory', function($http) {
     
         this.busy = true;
     // var count = 5;
-    // console.log(this.page)
+    console.log(this.busy)
     // console.log(x)
 
     $http.get('/category/' + x).then(function(response) {
