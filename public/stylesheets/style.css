@@ -3875,7 +3875,7 @@ h2.title {
 .timer{
     width: 24px;
     height: 24px;
-    text-align: center;
+    margin-left: 50px;
     background-color: transparent;
     box-shadow: inset 0px 0px 0px 2px #fff;
     border-radius: 50%;

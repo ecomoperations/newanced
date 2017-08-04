@@ -271,160 +271,7 @@ app.controller('mainCtrl', function($scope, $http, catFactory, $stateParams) {
     };
 
     console.log($scope.catFactory.items)
-    // console.log(catArray)
-    // $scope.catFactory.items.push(catArray)
-
-    // console.log($scope.catFactory.items[0])
-
-    // allCats.forEach(function(cat) {
-    //     var catArray = [];
-    //     for (i=1;i<=2;i++) {
-    //         $http.get(cat).then(function(response) {
-    //             catArray.push(response.data[i])
-    //         });
-    //     };
-
-    // });
-
-
-    // $scope.allData = catArray;
-
-    // $scope.catFactory.items.push(allData);
-
-
-    // console.log("$scope.allData",$scope.allData);
-    // console.log($scope.allData.length)
     
-
-
-
-    // $http.get('/posts').then(function(response) {
-        // var array = response.data;
-        // var articles = [];
-        // for (var i=0; i<array.length; i++) {
-        //     articles
-        //     array[i].category
-
-        //     articles.push(array[i])
-        // };
-
-        // array.forEach(function(x) {
-        //     x.category.doesnotexist? ? {}.push(x) 
-        // });
-        
-
-        // $scope.allData = response.data;
-        // $scope.gunControlAgainst = response.data.
-
-    // });
-
- //    $scope.filter1 = { category: '783c020a-64d4-11e6-812b-842b2b482ce2' };
-
- //    console.log($scope.filter1.category);
-
-	// $scope.filter2 = { category: 'fa480a28-64d4-11e6-812b-842b2b482ce2' };
-
-
-    //  $scope.addMoreFilter = function(itemId){
-    //     if(!$scope.allData.scrollIsFree){
-    //         return;
-    //     }
-
-    //     $scope.allData.scrollIsFree = false;
-
-    //     var resultArray1 = $scope.allData.filter(function(x) {
-    //         // console.log(x.category)
-    //         if ( x === undefined) {
-    //             // console.log("come on")   
-    //             return false
-    //         }
-            
-    //         return x.category === $scope.filter1.category;
-    //     });
-
-    //     $http.get('/category/' + $scope.allData.category).then(function(response) {
-    
-    //         //var nextOne = response.data.length - resultArray1.length - 1;
-    //         $scope.allData = $scope.allData.concat(response.data);
-    //         //$scope.allData.posts.push(response.data[nextOne]);
-    //         $scope.allData.scrollIsFree = true;
-
-    //     }).then(function(err) {
-    //         $scope.allData.scrollIsFree = true;
-    //     });
-
-    // }
-
-
-    // $scope.addMore = function() {
-    
-    //     console.log("being called")
-    //      $scope.scrollIsFree = false;
-
-
-    //     // var resultArray1 = $scope.allData.filter(function(x) {
-    //     //     // console.log(x.category)
-    //     //     if ( x === undefined) {
-    //     //         // console.log("come on")   
-    //     //         return false
-    //     //     }
-            
-    //     //     return x.category === $scope.filter1.category;
-    //     // });
-    //     // var resultArray2 = $scope.allData.filter(function(x) {
-    //     //     // console.log(x.category)
-    //     //     if ( x === undefined) {
-    //     //         // console.log("come on")   
-    //     //         return false
-    //     //     }
-            
-    //     //     return x.category === $scope.filter2.category;
-    //     // });
-    //     // console.log(resultArray1.length )
-    //     // console.log($scope.filter1.category.length)
-    //     // console.log(resultArray2.length )
-    //     // console.log($scope.filter2.category.length)
-     
-        
-
-
-    //         $http.get('/category/' + $scope.filter1.category).then(function(response) {
-    //                 console.log(response.data.length)
-    //                 // var nextOne = response.data.length - resultArray1.length - 1;
-    //                 nextOne = $scope.filter1.category.length;
-    //                 // console.log(resultArray1.length);
-    //                 // for(var i = resultArray1.length - 2; i <= resultArray1.length; i++) {
-    //                 //   $scope.allData = $scope.allData.concat(response.data[i]);
-    //                 // }
-
-    //                 // console.log(nextOne)
-    //                 //     $scope.allData.push(response.data[nextOne]);
-                    
-    //                 $scope.allData = $scope.allData.concat(response.data[nextOne]);
-      
-    //           $scope.scrollIsFree = true;
-    //         }).then(function(err) {
-    //             $scope.scrollIsFree = true;
-    //         });
-
-
-    //         $http.get('/category/' + $scope.filter2.category).then(function(response) {
-    //             console.log(response.data.length)
-    //                 // var nextOne2 = response.data.length - resultArray2.length - 1;
-    //               nextOne2 = $scope.filter2.category.length;
-    //                // for(var i = resultArray2.length - 2; i <= resultArray2.length; i++) {
-    //                //    $scope.allData = $scope.allData.concat(response.data[i]);
-    //                //  }
-    //               // console.log(nextOne2)
-    //                 // $scope.allData.push(response.data[nextOne2]);
-    //                 $scope.allData = $scope.allData.concat(response.data[nextOne2]);
-
-    //           $scope.scrollIsFree = true;
-    //         }).then(function(err) {
-    //             $scope.scrollIsFree = true;
-    //         });
-        
-    // };
 
 	
     $scope.links = [
@@ -453,18 +300,10 @@ app.controller('mainCtrl', function($scope, $http, catFactory, $stateParams) {
         return topicName;
     };
     
-    
-    
-
+  
     
 
-  //   $scope.topicCall = function(x, y) {
-  //   	$scope.filter1.category: x };
-		// $scope.filter2.category: y };
-  //   };
-    // $http.get('/posts/:category_id')
-    // .then(function(response) {
-    //     // console.log(response)
-    //     $scope.allData = response.data;
-    // });
+    
+
+  
 });
