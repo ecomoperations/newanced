@@ -95,7 +95,7 @@ setInterval(() => {
   console.log('update data endpoints');
     return request.get(feedUrl, saveFunc); 
   });
-}, 30000);
+}, 1000*60*20);
 
 
 router.get('/', function(req, res, next) {
