@@ -49,6 +49,8 @@ var saveFunc = function (req, res) {
 	var items = body.results.items;
 	var category_id = body.results.searches[0].id;
 	
+  console.log("called this 10 minutes")
+
 	items.forEach(function(item) {
 		
 		// var stripped_content = item.content.replace("<[^>]*>/g", " ");
@@ -59,7 +61,7 @@ var saveFunc = function (req, res) {
 		  if (err) throw err;
 		  
 		  if (dbPost.length != 0) {
-		  	console.log("already exists")
+		  	// console.log("already exists")
 		  } else {
 		  	
 		  	var post = new models.Post();
@@ -74,7 +76,7 @@ var saveFunc = function (req, res) {
 			post.category = category_id; 
 			post.save(function(err, res) {
 				
-				console.log('saved');
+				// console.log('saved');
 			});
 		  }
 
@@ -83,15 +85,17 @@ var saveFunc = function (req, res) {
 	
 }
 
-feedUrls.forEach(function(feedUrl) {
-	// console.log(feedUrl)
-	return request.get(feedUrl, saveFunc); 
-});
+
 // var postDatabase = function () {
 // 	return request.get(feedUrl, saveFunc); 
 // };
    
-// setInterval(postDatabase, 10000);
+setInterval(() => {
+  feedUrls.forEach(function(feedUrl) {
+  console.log('update data endpoints');
+    return request.get(feedUrl, saveFunc); 
+  });
+}, 30000);
 
 
 router.get('/', function(req, res, next) {
