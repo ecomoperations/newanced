@@ -182,7 +182,7 @@ app.factory('catFactory', function($http) {
   };
 
   catFactory.prototype.page1 = function() {
-    this.page = 1;
+    this.page = 0;
     // console.log(this.page)
   };
 
@@ -192,22 +192,28 @@ app.factory('catFactory', function($http) {
     
         this.busy = true;
     // var count = 5;
-    console.log(this.busy)
+    // console.log(this.busy)
     // console.log(x)
 
     $http.get('/category/' + x).then(function(response) {
         // + $scope.filter1.category
         // console.log(response)
         // console.log(this.page)
-      var posts = response.data;
+      var posts = response.data.reverse();
      // console.log(posts)
 
-      for (var i = (posts.length - (this.page)); i > (posts.length - (this.page) - 4); --i) {
+      for (var i = this.page; i < (this.page + 3); i++) {
         this.items.push(posts[i]);
-        // console.log(i)
+        console.log(i)
       }
-      // console.log(this.items)
       this.page = this.page + 3;
+
+      // for (var i = (posts.length - (this.page)); i > (posts.length - (this.page) - 4); --i) {
+      //   this.items.push(posts[i]);
+      //   // console.log(i)
+      // }
+      // // console.log(this.items)
+      // this.page = this.page + 3;
 
       this.busy = false;
 
@@ -270,7 +276,7 @@ app.controller('mainCtrl', function($scope, $http, catFactory, $stateParams) {
         
     };
 
-    console.log($scope.catFactory.items)
+    // console.log($scope.catFactory.items)
     
 
 	
