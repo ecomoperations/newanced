@@ -178,11 +178,17 @@ app.factory('catFactory', function($http) {
     // console.log(this.items)
     this.busy = false;
     this.page = 1;
+    this.page2 = 1;
    
   };
 
   catFactory.prototype.page1 = function() {
     this.page = 0;
+    // console.log(this.page)
+  };
+
+  catFactory.prototype.page2 = function() {
+    this.page2 = 0;
     // console.log(this.page)
   };
 
@@ -207,6 +213,40 @@ app.factory('catFactory', function($http) {
         console.log(i)
       }
       this.page = this.page + 3;
+
+      // for (var i = (posts.length - (this.page)); i > (posts.length - (this.page) - 4); --i) {
+      //   this.items.push(posts[i]);
+      //   // console.log(i)
+      // }
+      // // console.log(this.items)
+      // this.page = this.page + 3;
+
+      this.busy = false;
+
+    }.bind(this));
+  };
+
+  catFactory.prototype.nextPage2 = function(x) {
+    
+    if (this.busy) return;
+    
+        this.busy = true;
+    // var count = 5;
+    // console.log(this.busy)
+    // console.log(x)
+
+    $http.get('/category/' + x).then(function(response) {
+        // + $scope.filter1.category
+        // console.log(response)
+        // console.log(this.page)
+      var posts = response.data.reverse();
+     // console.log(posts)
+
+      for (var i = this.page2; i < (this.page2 + 3); i++) {
+        this.items.push(posts[i]);
+        console.log(i)
+      }
+      this.page2 = this.page2 + 3;
 
       // for (var i = (posts.length - (this.page)); i > (posts.length - (this.page) - 4); --i) {
       //   this.items.push(posts[i]);
