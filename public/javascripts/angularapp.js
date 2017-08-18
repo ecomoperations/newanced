@@ -32,8 +32,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     name: 'trump',
     url: '/trump',
     params: {
-      libCat: "783c020a-64d4-11e6-812b-842b2b482ce2",
-      conCat: "fa480a28-64d4-11e6-812b-842b2b482ce2"
+      libCat: "fa480a28-64d4-11e6-812b-842b2b482ce2",
+      conCat: "783c020a-64d4-11e6-812b-842b2b482ce2"
     },
     controller: 'mainCtrl',
     templateUrl: '/trump.html'
@@ -43,8 +43,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     name: 'deathpenalty',
     url: '/deathpenalty',
     params: {
-      libCat: "cee13c52-8693-11e6-8e98-842b2b5a33d6",
-      conCat: "7b5673e4-8694-11e6-bdcd-842b2b5a30e0"
+      libCat: "7b5673e4-8694-11e6-bdcd-842b2b5a30e0",
+      conCat: "cee13c52-8693-11e6-8e98-842b2b5a33d6"
     },
     controller: 'mainCtrl',
     templateUrl: '/deathpenalty.html'
@@ -55,8 +55,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     name: 'economics',
     url: '/economics',
     params: {
-      libCat: "dfa4346e-64d2-11e6-a98f-782bcb10ee8c",
-      conCat: "f14fd902-64d2-11e6-bf72-782bcb102f71"
+      libCat: "f14fd902-64d2-11e6-bf72-782bcb102f71",
+      conCat: "dfa4346e-64d2-11e6-a98f-782bcb10ee8c"
     },
     controller: 'mainCtrl',
     templateUrl: '/economics.html'
@@ -66,8 +66,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     name: 'abortion',
     url: '/abortion',
     params: {
-      libCat: "fdeb488e-8694-11e6-9e8d-842b2b6f7849",
-      conCat: "06041a78-8695-11e6-be97-782bcb10f569"
+      libCat: "06041a78-8695-11e6-be97-782bcb10f569",
+      conCat: "fdeb488e-8694-11e6-9e8d-842b2b6f7849"
     },
     controller: 'mainCtrl',
     templateUrl: '/abortion.html'
@@ -77,8 +77,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     name: 'taxes',
     url: '/taxes',
     params: {
-      libCat: "8f889fe6-8693-11e6-80c5-782bcb102f71",
-      conCat: "a5d71e44-8693-11e6-9efe-842b2b5a2688"
+      libCat: "a5d71e44-8693-11e6-9efe-842b2b5a2688",
+      conCat: "8f889fe6-8693-11e6-80c5-782bcb102f71"
     },
     controller: 'mainCtrl',
     templateUrl: '/taxes.html'
@@ -88,8 +88,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     name: 'immigration',
     url: '/immigration',
     params: {
-      libCat: "7fe05f0c-64d3-11e6-812b-842b2b482ce2",
-      conCat: "8f3b496c-64d3-11e6-bd1d-782bcb10f569"
+      libCat: "8f3b496c-64d3-11e6-bd1d-782bcb10f569",
+      conCat: "7fe05f0c-64d3-11e6-812b-842b2b482ce2"
     },
     controller: 'mainCtrl',
     templateUrl: '/immigration.html'
@@ -99,8 +99,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     name: 'foreignpolicy',
     url: '/foreignpolicy',
     params: {
-      libCat: "f4111e50-868b-11e6-9e8d-842b2b6f7849",
-      conCat: "fc226a0e-868b-11e6-8a2c-782bcb11749d"
+      libCat: "fc226a0e-868b-11e6-8a2c-782bcb11749d",
+      conCat: "f4111e50-868b-11e6-9e8d-842b2b6f7849"
     },
     controller: 'mainCtrl',
     templateUrl: '/foreignpolicy.html'
@@ -110,8 +110,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     name: 'climatechange',
     url: '/climatechange',
     params: {
-      libCat: "ae5bb6d2-8694-11e6-80c5-782bcb102f71",
-      conCat: "bd550fe4-8694-11e6-be97-782bcb10f569"
+      libCat: "bd550fe4-8694-11e6-be97-782bcb10f569",
+      conCat: "ae5bb6d2-8694-11e6-80c5-782bcb102f71"
     },
     controller: 'mainCtrl',
     templateUrl: '/climatechange.html'
@@ -121,8 +121,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     name: 'healthcare',
     url: '/healthcare',
     params: {
-      libCat: "76ece312-64d2-11e6-8d27-842b2b5a33d6",
-      conCat: "95740892-64d2-11e6-9ebd-842b2b5a2688"
+      libCat: "95740892-64d2-11e6-9ebd-842b2b5a2688",
+      conCat: "76ece312-64d2-11e6-8d27-842b2b5a33d6"
     },
     controller: 'mainCtrl',
     templateUrl: '/healthcare.html'
