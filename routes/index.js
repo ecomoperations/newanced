@@ -5,9 +5,10 @@ var models            = require('../models/Posts.js');
 var feedUrls = require('../config/external_posts.js');
 
 
+// Will need the following once I create a post page (see below for URL route)
+
 router.param('post', function(req, res, next, id) {
   var query = models.Post.findById(id);
-   // console.log(query)
   query.exec(function (err, post){
 
     if (err) { return next(err); }
@@ -19,21 +20,21 @@ router.param('post', function(req, res, next, id) {
 });
 
 
+// Will need the following once I create a category page (see below for URL route)
+
 router.param('category', function(req, res, next, category_id) {
-	// console.log(category_id)
+
   query = models.Post.find({category: category_id});
-  	// console.log(query)
   query.exec(function(err, category) {
-  		// console.log(category)
+
         if (err) { 
-        	// console.log("there is an error")
         	return next(err); 
         }
     if (!category) { 
-    	// console.log("didnt work yo")
+
     	return next(new Error('can\'t find category')); 
     }
-    	// console.log(category)
+
     req.category = category;
     return next();
   });
@@ -42,7 +43,8 @@ router.param('category', function(req, res, next, category_id) {
 });
 
 
-
+// The following function is called every ten minutes to index the latest articles
+// for each of the category endpoints
 
 var saveFunc = function (req, res) {
 	var body = JSON.parse(res.body);
@@ -54,14 +56,14 @@ var saveFunc = function (req, res) {
 	items.forEach(function(item) {
 		
 		// var stripped_content = item.content.replace("<[^>]*>/g", " ");
-		// console.log(stripped_content)
+		
 
 		models.Post.find({title: item.title}, function(err, dbPost) {
 		  
 		  if (err) throw err;
 		  
 		  if (dbPost.length != 0) {
-		  	// console.log("already exists")
+
 		  } else {
 		  	
 		  	var post = new models.Post();
@@ -76,7 +78,7 @@ var saveFunc = function (req, res) {
 			post.category = category_id; 
 			post.save(function(err, res) {
 				
-				// console.log('saved');
+				
 			});
 		  }
 
@@ -86,9 +88,7 @@ var saveFunc = function (req, res) {
 }
 
 
-// var postDatabase = function () {
-// 	return request.get(feedUrl, saveFunc); 
-// };
+// BELOW is where the magic happens, every ten minutes call the saveFunc
    
 setInterval(() => {
   feedUrls.forEach(function(feedUrl) {
@@ -103,10 +103,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Nooanse' });
 });
 
-// router.get('/sandbox', function(req, res, next) {
-  
-//   res.render('sandbox', { title: 'sandbox' });
-// });
+// I'll implement this stuff if need be
+
 
 router.get('/posts', function(req, res, next) {
 	models.Post.find(function(err, posts) {
@@ -118,16 +116,6 @@ router.get('/posts', function(req, res, next) {
     });
 });
 
-// router.get('/posts/:category_id', function(req, res) {
-  // models.Post.find({category:category_id},function(err, posts) {
-  //       // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-  //       if (err)
-  //           res.send(err)
-
-  //       res.json(posts); 
-  //   });
-
-// });
 
 router.get('/category/:category', function(req, res) {
 	  res.json(req.category)
@@ -144,7 +132,6 @@ router.get('/category/:category', function(req, res) {
 
 
 router.get('/posts/:post', function(req, res) {
-  // console.log(req.post)
   res.render('postPage', { thePost: req.post});
 });
 

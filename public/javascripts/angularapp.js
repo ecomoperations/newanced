@@ -1,9 +1,7 @@
-
-
 var app = angular.module('myApp', ['infinite-scroll', 'ui.router']);
 
 
-
+// RSS feed returns HTML with extra characters let's get rid of those
 
 app.filter('stripTags', function() {
     return function(text) {
@@ -12,6 +10,7 @@ app.filter('stripTags', function() {
 });
 
 
+// We want different URL routes for UX
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -165,17 +164,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });
 
 
-// angular.module('myApp').component('trump', {
-//   bindings: { trump: '<' },
-  
-//   templateUrl: '/trump.html'
-// });
-
+// factory called when implementing infinite scroll 
+// one page for each side, http call 
 
 app.factory('catFactory', function($http) {
   var catFactory = function() {
     this.items = [];
-    // console.log(this.items)
     this.busy = false;
     this.page = 1;
     this.page2 = 1;
@@ -184,12 +178,10 @@ app.factory('catFactory', function($http) {
 
   catFactory.prototype.page1 = function() {
     this.page = 0;
-    // console.log(this.page)
   };
 
   catFactory.prototype.page2 = function() {
     this.page2 = 0;
-    // console.log(this.page)
   };
 
   catFactory.prototype.nextPage = function(x) {
@@ -197,29 +189,16 @@ app.factory('catFactory', function($http) {
     if (this.busy) return;
     
         this.busy = true;
-    // var count = 5;
-    // console.log(this.busy)
-    // console.log(x)
 
     $http.get('/category/' + x).then(function(response) {
-        // + $scope.filter1.category
-        // console.log(response)
-        // console.log(this.page)
+
       var posts = response.data.reverse();
-     // console.log(posts)
 
       for (var i = this.page; i < (this.page + 3); i++) {
         this.items.push(posts[i]);
         console.log(i)
       }
       this.page = this.page + 3;
-
-      // for (var i = (posts.length - (this.page)); i > (posts.length - (this.page) - 4); --i) {
-      //   this.items.push(posts[i]);
-      //   // console.log(i)
-      // }
-      // // console.log(this.items)
-      // this.page = this.page + 3;
 
       this.busy = false;
 
@@ -231,29 +210,16 @@ app.factory('catFactory', function($http) {
     if (this.busy) return;
     
         this.busy = true;
-    // var count = 5;
-    // console.log(this.busy)
-    // console.log(x)
 
     $http.get('/category/' + x).then(function(response) {
-        // + $scope.filter1.category
-        // console.log(response)
-        // console.log(this.page)
-      var posts = response.data.reverse();
-     // console.log(posts)
+
+      var posts = response.data.reverse();  
 
       for (var i = this.page2; i < (this.page2 + 3); i++) {
         this.items.push(posts[i]);
         console.log(i)
       }
       this.page2 = this.page2 + 3;
-
-      // for (var i = (posts.length - (this.page)); i > (posts.length - (this.page) - 4); --i) {
-      //   this.items.push(posts[i]);
-      //   // console.log(i)
-      // }
-      // // console.log(this.items)
-      // this.page = this.page + 3;
 
       this.busy = false;
 
@@ -263,26 +229,16 @@ app.factory('catFactory', function($http) {
   return catFactory;
 });
 
-
+// Main Angular controller one-pager
 
 app.controller('mainCtrl', function($scope, $http, catFactory, $stateParams) {
-
 
 
     $scope.filter1 = { category: $stateParams.libCat || "783c020a-64d4-11e6-812b-842b2b482ce2"};
     $scope.filter2 = { category: $stateParams.conCat || "fa480a28-64d4-11e6-812b-842b2b482ce2"};
 
+    $scope.catFactory = new catFactory();    
 
-
-
-    $scope.catFactory = new catFactory();
-    // catFactory.page1()
-    // console.log($scope.catFactory.items)
-    // $scope.catFactory.nextPage("783c020a-64d4-11e6-812b-842b2b482ce2");
-    
-
-    
-   
     $scope.scrollIsFree1 = true;
     $scope.scrollIsFree2 = true;
 
@@ -300,24 +256,17 @@ app.controller('mainCtrl', function($scope, $http, catFactory, $stateParams) {
     var catArray = [];
     for (var i=0; i <= (allCats.length - 1) ;i++) {
 
-        
             $http.get(allCats[i]).then(function(response) {
-                // console.log(response.data.length)
-                // for (var x = 0; x <= 1; x++) {
                 for (var x = (response.data.length - 1); x > (response.data.length - 3); --x) {
-                    // console.log(response.data[x])
+                    
                     response.data[x].scrollIsFree = true;
-                    // response.data[x].posts = [];
+                    
                      $scope.catFactory.items.push(response.data[x])
-
                 };
-                // console.log(catArray.length)
+                
             });
         
     };
-
-    // console.log($scope.catFactory.items)
-    
 
 	
     $scope.links = [
@@ -335,6 +284,9 @@ app.controller('mainCtrl', function($scope, $http, catFactory, $stateParams) {
         {name: 'Criminal Justice', category: ['d5e6f190-64d3-11e6-9d20-842b2b6f7849', 'ea43ad4a-64d3-11e6-812b-842b2b482ce2']} //change, as-is
         
     ];
+
+
+    // just naming the category on card
 
     $scope.categoryFunction = function(post) {
         var topicName = "Topic"
